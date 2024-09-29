@@ -6,6 +6,7 @@ import { Status } from '@prisma/client'
 import Pagination from '@/app/components/Pagination'
 import IssueTable, { columnNames, IssueQuery } from './IssueTable'
 import { Flex } from '@radix-ui/themes'
+import { Metadata } from 'next'
 
 interface Props {
   searchParams: IssueQuery,
@@ -59,5 +60,14 @@ export const dynamic = 'force-dynamic';
 //export const revalidate = 0; //same as constant above. You can set more than 0 seconds and it means that Nextjs will revalidate the page
                                //after every seconds that you have set. Revalidate means refresh the page by sending request to the backend
                                //to get the content of the page!
+
+//the constant name must be correct because this is the convention in nextjs.
+//export metadata for every page is to improve SEO. At minimal, we should provide the title and description
+//we can include open graph and twitter properties so that people can easily share our content on social media
+export const metadata: Metadata = {
+  title: 'Issue Tracker - Issue List',
+  description: 'View all project issues'
+}
+                    
 
 export default Issues
