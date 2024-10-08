@@ -1,6 +1,10 @@
 import { PrismaClient } from '@prisma/client'
 
 const prismaClientSingleton = () => {
+  /* remarked the log. This param is to enable the log for query from prisma
+  return new PrismaClient({
+    log: ['query']
+  }) */
   return new PrismaClient({
     log: ['query']
   })
